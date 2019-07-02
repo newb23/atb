@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="ATB.Views.Hotkeys"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:ATB.ViewModels"
+             xmlns:controls="clr-namespace:ATB.Controls"
+             mc:Ignorable="d">
+
+    <UserControl.DataContext>
+        <viewModels:SettingsViewModel />
+    </UserControl.DataContext>
+
+    <Grid Margin="10" HorizontalAlignment="Center">
+        <StackPanel>
+            <StackPanel.DataContext>
+                <viewModels:HotkeysViewModel />
+            </StackPanel.DataContext>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <UniformGrid HorizontalAlignment="Center">
+                    <controls:HotkeyControl Margin="2" Text="Pause" ModKeySetting="{Binding ATB.PauseModifier, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeySetting="{Binding ATB.PauseKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <controls:HotkeyControl Text="Auto Target Mode" ModKeySetting="{Binding ATB.ChangeAutoTargetModifier, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeySetting="{Binding ATB.ChangeAutoTargetKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <controls:HotkeyControl Text="Smart Pull" ModKeySetting="{Binding ATB.SmartPullModifier, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeySetting="{Binding ATB.SmartPullKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <controls:HotkeyControl Text="Mechanic Warnings" ModKeySetting="{Binding ATB.MechanicWarningModifier, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeySetting="{Binding ATB.MechanicWarningKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <controls:HotkeyControl Text="Auto-Target" ModKeySetting="{Binding ATB.AutoTargetingModifier, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeySetting="{Binding ATB.AutoTargetingKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <controls:HotkeyControl Text="Auto-Face" ModKeySetting="{Binding ATB.AutoFaceModifier, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeySetting="{Binding ATB.AutoFaceKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </UniformGrid>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

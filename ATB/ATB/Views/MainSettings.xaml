@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="ATB.Views.MainSettings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:ATB.ViewModels"
+             xmlns:controls="clr-namespace:ATB.Controls"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:enums="clr-namespace:ATB.Models"
+             mc:Ignorable="d">
+
+    <UserControl.DataContext>
+        <viewModels:SettingsViewModel />
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type sys:Enum}" x:Key="AutoTargetSelection">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:AutoTargetSelection" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
+
+    <Grid Margin="10" HorizontalAlignment="Center">
+        <StackPanel Margin="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <CheckBox Content="Pull" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.UsePull, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <CheckBox Content="Pause" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.UsePause, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <CheckBox Content="Smart Pull" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.UseSmartPull, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <CheckBox Content="Auto-Face" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.UseAutoFace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <CheckBox Content="Auto-Dialog" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.UseAutoTalk, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <CheckBox Content="Auto-Target" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.UseAutoTargeting, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <!--<CheckBox Content="Auto-TPS Adjust" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.UseAutoTpsAdjust, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />-->
+                    <CheckBox Content="Enable Overlay" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.UseOverlay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Command="{Binding OverlayViewUpdate}" />
+                    <CheckBox Content="Output to Chatbox" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.UseOutputToEcho, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <CheckBox Content="Auto-Accept Quest" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.UseAutoQuest, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <CheckBox Content="Mechanic Warnings" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.UseExtremeCaution, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <CheckBox Content="Auto-Skip Cutscene" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.UseAutoCutscene, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <CheckBox Content="Auto Commence Duty" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.AutoCommenceDuty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <CheckBox Content="Show Toast Messages" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.UseToastMessages, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <CheckBox Content="Notify if Duty is Ready" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.AutoDutyNotify, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <CheckBox Content="Hide Overlay When Running" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.HideOverlayWhenRunning, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <controls:ATBNumeric Margin="2" HorizontalAlignment="Left" Width="260" MinValue="0" MaxValue="50" TextBlockValue="Max Distance to Get New Target:" Value="{Binding Settings.MaxTargetDistance, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <controls:ATBNumeric Margin="2" HorizontalAlignment="Left" Width="260" MinValue="0" MaxValue="5000" TextBlockValue="Auto Commence Delay:" Value="{Binding Settings.AutoCommenceDelay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <controls:ATBNumeric Margin="2" HorizontalAlignment="Left" Width="260" MinValue="0" MaxValue="240" TextBlockValue="TPS Adjust" Value="{Binding Settings.TpsAdjust, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <ComboBox Tag="Auto-Target Selection" Margin="2" Style="{DynamicResource ATBComboBox}" SelectedItem="{Binding Settings.AutoTargetSelection, UpdateSourceTrigger=LostFocus}" ItemsSource="{Binding Source={StaticResource AutoTargetSelection}}" HorizontalAlignment="Left" Width="260" />
+                    <Button Content="Change Combat Routine" Click="LaunchRoutineSelect" HorizontalAlignment="Center" VerticalAlignment="Top" Width="145" Margin="0,5,0,0" />
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,38 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <LinearGradientBrush x:Key="ButtonFace"
+		StartPoint="0.51,0" EndPoint="0.51,0.99"
+		SpreadMethod="Pad" ColorInterpolationMode="SRgbLinearInterpolation">
+        <GradientStop Color="#FF29F04D" Offset="0.51" />
+        <GradientStop Color="#FF10CB32" Offset="1" />
+        <GradientStop Color="#FF10CB32" Offset="0" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="ButtonMouseOver"
+		ColorInterpolationMode="SRgbLinearInterpolation" EndPoint="0.51,0.99" SpreadMethod="Pad" StartPoint="0.51,0">
+        <GradientStop Color="#FF37EA70" Offset="0.51" />
+        <GradientStop Color="#FF37EA70" Offset="1" />
+        <GradientStop Color="#FF37EA70" Offset="0" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="TabUnselectedBackground"
+		StartPoint="0.51,0" EndPoint="0.51,0.99"
+		SpreadMethod="Pad" ColorInterpolationMode="SRgbLinearInterpolation">
+        <GradientStop Color="#FF282B30" Offset="0.51" />
+        <GradientStop Color="#FF1F2125" Offset="1" />
+        <GradientStop Color="#FF1F2125" Offset="0" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="TabSelectedBackground"
+		StartPoint="0.51,0" EndPoint="0.51,0.99"
+		SpreadMethod="Pad" ColorInterpolationMode="SRgbLinearInterpolation">
+        <GradientStop Color="#FF5BC927" Offset="0.025" />
+        <GradientStop Color="#FF0A0A0A" Offset="1" />
+        <GradientStop Color="#FF4B4B4B" Offset="0" />
+        <GradientStop Color="#FF5BC927" Offset="0.992" />
+        <GradientStop Color="#FF20EC2A" Offset="0.527" />
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="TabSelectedBorderColor" Color="#FFA7F09C" />
+</ResourceDictionary>

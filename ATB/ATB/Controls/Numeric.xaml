@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="ATB.Controls.ATBNumeric"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:my="clr-namespace:ATB.Controls"
+             mc:Ignorable="d">
+
+    <DockPanel VerticalAlignment="Center">
+        <Button x:Name="ButtonIncrement"
+
+                Style="{DynamicResource ATBPlusButton}"
+                DockPanel.Dock="Right"
+                Content="+"
+                Width="{Binding ActualHeight, ElementName=ButtonDecrement, Mode=Default}"
+                Height="{Binding ActualHeight, ElementName=TextBox, Mode=Default}" />
+
+        <Button x:Name="ButtonDecrement"
+                Style="{DynamicResource ATBMinusButton}"
+                DockPanel.Dock="Right"
+                Content="-"
+                Width="{Binding ActualHeight, ElementName=ButtonDecrement, Mode=Default}"
+                Height="{Binding ActualHeight, ElementName=TextBox, Mode=Default}" />
+
+        <TextBox
+            x:Name="TextBox"
+            Template="{DynamicResource ATBTextBox}"
+            Style="{DynamicResource ATBTextBoxStyleRegular}"
+            Padding="0,0,5,0"
+            Tag="{Binding TextBlockValue,
+                Mode=TwoWay,
+                RelativeSource={RelativeSource FindAncestor,
+                AncestorLevel=1,
+                AncestorType={x:Type my:ATBNumeric}},
+                UpdateSourceTrigger=PropertyChanged}"
+            Text="{Binding Value,
+                Mode=TwoWay,
+                RelativeSource={RelativeSource FindAncestor,
+                AncestorLevel=1,
+                AncestorType={x:Type my:ATBNumeric}},
+                UpdateSourceTrigger=PropertyChanged}"
+            TextAlignment="Right" />
+    </DockPanel>
+</UserControl>
