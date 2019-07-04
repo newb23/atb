@@ -35,6 +35,7 @@
                     <CheckBox Content="Auto-Face" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.UseAutoFace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox Content="Auto-Dialog" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.UseAutoTalk, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox Content="Auto-Target" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.UseAutoTargeting, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <CheckBox Content="Sticky-Target" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.UseStickyTargeting, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <!--<CheckBox Content="Auto-TPS Adjust" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.UseAutoTpsAdjust, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />-->
                     <CheckBox Content="Enable Overlay" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.UseOverlay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Command="{Binding OverlayViewUpdate}" />
                     <CheckBox Content="Output to Chatbox" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.UseOutputToEcho, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
@@ -45,6 +46,7 @@
                     <CheckBox Content="Show Toast Messages" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.UseToastMessages, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox Content="Notify if Duty is Ready" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.AutoDutyNotify, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     <CheckBox Content="Hide Overlay When Running" Margin="1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.HideOverlayWhenRunning, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <CheckBox Content="Auto Sprint" Margin="1,1,1.4,1" Style="{DynamicResource ATBCheckbox}" IsChecked="{Binding Settings.AutoSprint, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
                 <StackPanel Grid.Column="1">
                     <controls:ATBNumeric Margin="2" HorizontalAlignment="Left" Width="260" MinValue="0" MaxValue="50" TextBlockValue="Max Distance to Get New Target:" Value="{Binding Settings.MaxTargetDistance, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />

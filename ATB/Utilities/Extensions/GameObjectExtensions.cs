@@ -90,7 +90,19 @@ namespace ATB.Utilities.Extensions
             if (tar == null)
                 return false;
 
+            // If our target has more health than our setting and more health percent than our health percent setting, return true, else, return false
             return tar.CurrentHealth > healthInt && tar.CurrentHealthPercent > healthPercent;
+
+            //// If our target has more hp percent than our hp percent setting but has less health than our health setting, return false
+            //if (tar.CurrentHealthPercent > healthPercent && tar.CurrentHealth < healthInt)
+            //    return false;
+
+            //// if our target has more health than our setting but less health percent than our hp percent setting, return false
+            //if (tar.CurrentHealth > healthInt && tar.CurrentHealthPercent < healthPercent)
+            //    return false;
+
+            //// if our target has less health than our setting and less health than our percent setting, return false
+            //return tar.CurrentHealth >= healthInt || !(tar.CurrentHealthPercent < healthPercent);
         }
 
         #region Helpers
@@ -102,7 +114,6 @@ namespace ATB.Utilities.Extensions
             ClassJobType.Paladin,
             ClassJobType.Warrior,
             ClassJobType.DarkKnight,
-            ClassJobType.Gunbreaker
         };
 
         private static readonly List<ClassJobType> Healers = new List<ClassJobType>()
@@ -126,8 +137,7 @@ namespace ATB.Utilities.Extensions
             ClassJobType.Monk,
             ClassJobType.Ninja,
             ClassJobType.Machinist,
-            ClassJobType.Rogue,
-            ClassJobType.Dancer
+            ClassJobType.Rogue
         };
 
         public static IEnumerable<BattleCharacter> PartyMembers

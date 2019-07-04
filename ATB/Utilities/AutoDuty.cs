@@ -17,8 +17,21 @@ namespace ATB.Utilities
         private static DateTime _joinTime, _autoDutyPulseRejectTime;
         private static bool _dutyReady, _joinTimeSet, _commenced;
 
+        public static bool AutoSprint()
+        {
+            if (MainSettingsModel.Instance.AutoSprint && ActionManager.IsSprintReady && MovementManager.IsMoving)
+            {
+                ActionManager.Sprint();
+                return true;
+            }
+
+            return false;
+        }
+
         public static void AutoDutyRoot()
         {
+          
+
             if (DutyManager.InInstance || (!MainSettingsModel.Instance.AutoDutyNotify && !MainSettingsModel.Instance.AutoCommenceDuty))
             {
                 if (DateTime.Now < _autoDutyPulseRejectTime) return;

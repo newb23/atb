@@ -13,7 +13,6 @@ namespace ATB.Utilities
                 case ClassJobType.Paladin:
                 case ClassJobType.Gladiator:
                 case ClassJobType.DarkKnight:
-                case ClassJobType.Gunbreaker:
                     return true;
 
                 default:
@@ -41,7 +40,6 @@ namespace ATB.Utilities
                 case ClassJobType.Thaumaturge:
                 case ClassJobType.Samurai:
                 case ClassJobType.RedMage:
-                case ClassJobType.Dancer:
                     return true;
 
                 default:
