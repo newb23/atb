@@ -32,6 +32,9 @@ namespace ATB.Utilities
         {
             if (!MainSettingsModel.Instance.UseAutoTargeting || MainSettingsModel.Instance.AutoTargetSelection == AutoTargetSelection.None) return false;
 
+            if (MainSettingsModel.Instance.UseStickyTargeting && Core.Player.HasTarget)
+                return false;
+
             switch (MainSettingsModel.Instance.AutoTargetSelection)
             {
                 case AutoTargetSelection.NearestEnemy:
@@ -245,6 +248,20 @@ namespace ATB.Utilities
 
         public static bool IsTank(Character c)
         {
+
+            try
+            {
+                BattleCharacter bc = (BattleCharacter)c;
+
+                return bc.IsTank();
+            }
+            catch (Exception ex)
+            {
+                //BadCasting this sux.
+                return false;
+            }
+
+            /*
             switch (c.CurrentJob)
             {
                 case ClassJobType.Marauder:
@@ -252,11 +269,12 @@ namespace ATB.Utilities
                 case ClassJobType.Paladin:
                 case ClassJobType.Gladiator:
                 case ClassJobType.DarkKnight:
+                case ClassJobType.Gunbreaker:
                     return true;
 
                 default:
                     return false;
-            }
+            }*/
         }
 
         public static Character PartyTank

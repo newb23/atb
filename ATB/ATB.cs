@@ -98,6 +98,7 @@ namespace ATB
             if (DateTime.Now < _pulseLimiter) return true;
             _pulseLimiter = DateTime.Now.AddSeconds(3);
 
+            AutoDuty.AutoSprint();
             AutoDuty.AutoDutyRoot();
             FormManager.SaveFormInstances();
 
@@ -107,11 +108,65 @@ namespace ATB
             if (!MainSettingsModel.Instance.UseAutoFace && GameSettingsManager.FaceTargetOnAction)
                 GameSettingsManager.FaceTargetOnAction = false;
 
+            //if (!MainSettingsModel.Instance.UseAutoTpsAdjust)
+            //{
             if (TreeRoot.TicksPerSecond != (byte)MainSettingsModel.Instance.TpsAdjust)
             {
                 TreeRoot.TicksPerSecond = (byte)MainSettingsModel.Instance.TpsAdjust;
             }
             return true;
+            //}
+
+            //var currentTpsSetting = MainSettingsModel.Instance.TpsAdjust;
+
+            //switch (_rbVersion)
+            //{
+            //    case 1:
+            //        var currentFps32 = Core.Memory.Read<float>(Core.Memory.Read<IntPtr>(Core.Memory.ImageBase + 0x107e474) + 0x15d0);
+
+            //        if (currentTpsSetting != 30 && currentFps32 >= 55)
+            //            MainSettingsModel.Instance.TpsAdjust = 30;
+
+            //        if (currentTpsSetting != 20 && IsWithin(currentFps32, 25, 35))
+            //            MainSettingsModel.Instance.TpsAdjust = 20;
+
+            //        if (currentTpsSetting != 10 && IsWithin(currentFps32, 10, 20))
+            //            MainSettingsModel.Instance.TpsAdjust = 10;
+            //        break;
+
+            //    case 2:
+            //        var currentFps64 = Core.Memory.Read<float>(Core.Memory.Read<IntPtr>(Core.Memory.ImageBase + 0x16b7508) + 0x186C);
+
+            //        if (currentTpsSetting != 30 && currentFps64 >= 55)
+            //            MainSettingsModel.Instance.TpsAdjust = 30;
+
+            //        if (currentTpsSetting != 20 && IsWithin(currentFps64, 25, 35))
+            //            MainSettingsModel.Instance.TpsAdjust = 20;
+
+            //        if (currentTpsSetting != 10 && IsWithin(currentFps64, 10, 20))
+            //            MainSettingsModel.Instance.TpsAdjust = 10;
+            //        break;
+
+            //    case 3:
+            //        var currentFpscn = Core.Memory.Read<float>(Core.Memory.Read<IntPtr>(Core.Memory.ImageBase + 0x1039534) + 0x15c8);
+
+            //        if (currentTpsSetting != 30 && currentFpscn >= 55)
+            //            MainSettingsModel.Instance.TpsAdjust = 30;
+
+            //        if (currentTpsSetting != 20 && IsWithin(currentFpscn, 25, 35))
+            //            MainSettingsModel.Instance.TpsAdjust = 20;
+
+            //        if (currentTpsSetting != 10 && IsWithin(currentFpscn, 10, 20))
+            //            MainSettingsModel.Instance.TpsAdjust = 10;
+            //        break;
+            //}
+
+            //if (TreeRoot.TicksPerSecond != (byte)MainSettingsModel.Instance.TpsAdjust)
+            //{
+            //    TreeRoot.TicksPerSecond = (byte)MainSettingsModel.Instance.TpsAdjust;
+            //}
+
+            //return true;
         }
 
         private static bool IsWithin(float num, int min, int max)
