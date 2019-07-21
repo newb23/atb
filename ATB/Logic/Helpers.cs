@@ -43,8 +43,15 @@ namespace ATB.Logic
                 }
             }
 
+            if (MainSettingsModel.Instance.AutoSprint && ActionManager.IsSprintReady && MovementManager.IsMoving)
+                ActionManager.Sprint();
+            
             if (MainSettingsModel.Instance.UseAutoTalk)
             {
+                if (Core.Me.IsAlive)
+                    if (SelectYesno.IsOpen)
+                        SelectYesno.ClickYes();
+
                 if (Talk.DialogOpen)
                     Talk.Next();
 
@@ -58,7 +65,7 @@ namespace ATB.Logic
                 //        await Coroutine.Wait(250, () => Request.HandOverButtonClickable);
                 //        if (Request.HandOverButtonClickable) { break; }
                 //    }
-
+                //
                 //    Logger.ATBLog("Handing over any item(s) in your Inventory.");
                 //    foreach (var s in InventoryManager.FilledSlots)
                 //    {
@@ -67,9 +74,9 @@ namespace ATB.Logic
                 //        await Coroutine.Wait(250, () => Request.HandOverButtonClickable);
                 //        if (Request.HandOverButtonClickable) { break; }
                 //    }
-
+                //
                 //    if (Request.HandOverButtonClickable) { Request.HandOver(); }
-
+                //
                 //    Logger.ATBLog("Handing over any item(s) in your Armory.");
                 //    foreach (var s in InventoryManager.FilledArmorySlots)
                 //    {
@@ -78,7 +85,7 @@ namespace ATB.Logic
                 //        await Coroutine.Wait(250, () => Request.HandOverButtonClickable);
                 //        if (Request.HandOverButtonClickable) { break; }
                 //    }
-
+                //
                 //    if (Request.HandOverButtonClickable) { Request.HandOver(); }
                 //    else { await Coroutine.Wait(3000, () => !Request.IsOpen); }
                 //}
