@@ -249,12 +249,10 @@ namespace ATB.Utilities
         public static bool IsTank(Character c)
         {
 
-            
             try
             {
                 BattleCharacter bc = (BattleCharacter)c;
-                //Logger.ATBLog("Character class:" + c.CurrentJob.ToString()+ "Character class is tank" + bc.IsTank());
-                
+
                 return bc.IsTank();
             }
             catch (Exception ex)
@@ -262,7 +260,6 @@ namespace ATB.Utilities
                 //BadCasting this sux.
                 return false;
             }
-
         }
 
         public static Character PartyTank

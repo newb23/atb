@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ATBLoader</RootNamespace>
     <AssemblyName>ATBLoader</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
@@ -54,8 +54,7 @@
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="RebornBuddy, Version=1.0.189.0, Culture=neutral, PublicKeyToken=48d7174f8a943034, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="RebornBuddy">
       <HintPath>..\References\RebornBuddy.exe</HintPath>
     </Reference>
     <Reference Include="System" />

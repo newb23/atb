@@ -13,6 +13,7 @@ namespace ATB.Utilities
                 case ClassJobType.Paladin:
                 case ClassJobType.Gladiator:
                 case ClassJobType.DarkKnight:
+                case ClassJobType.Gunbreaker:
                     return true;
 
                 default:

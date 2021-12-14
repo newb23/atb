@@ -115,7 +115,7 @@ namespace ATB.Utilities.Extensions
             ClassJobType.Paladin,
             ClassJobType.Warrior,
             ClassJobType.DarkKnight,
-            ClassJobType.Gunbreaker,
+            ClassJobType.Gunbreaker
         };
 
         private static readonly List<ClassJobType> Healers = new List<ClassJobType>()
