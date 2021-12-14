@@ -122,7 +122,8 @@ namespace ATB.Utilities.Extensions
             ClassJobType.Conjurer,
             ClassJobType.Scholar,
             ClassJobType.WhiteMage,
-            ClassJobType.Astrologian
+            ClassJobType.Astrologian,
+            ClassJobType.Sage
         };
 
         private static readonly List<ClassJobType> Dps = new List<ClassJobType>()
@@ -137,7 +138,8 @@ namespace ATB.Utilities.Extensions
             ClassJobType.Monk,
             ClassJobType.Ninja,
             ClassJobType.Machinist,
-            ClassJobType.Rogue
+            ClassJobType.Rogue,
+            ClassJobType.Reaper
         };
 
         public static IEnumerable<BattleCharacter> PartyMembers

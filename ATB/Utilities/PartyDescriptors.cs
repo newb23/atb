@@ -40,6 +40,7 @@ namespace ATB.Utilities
                 case ClassJobType.Thaumaturge:
                 case ClassJobType.Samurai:
                 case ClassJobType.RedMage:
+                case ClassJobType.Reaper:
                     return true;
 
                 default:
