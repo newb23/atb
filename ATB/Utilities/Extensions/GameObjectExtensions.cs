@@ -67,6 +67,7 @@ namespace ATB.Utilities.Extensions
             return unitasc.CharacterAuras.Any(r => auras.Contains(r.Id));
         }
 
+        
         public static bool IsTank(this GameObject tar)
         {
             var gameObject = tar as Character;
@@ -106,7 +107,7 @@ namespace ATB.Utilities.Extensions
         }
 
         #region Helpers
-
+      
         private static readonly List<ClassJobType> Tanks = new List<ClassJobType>()
         {
             ClassJobType.Gladiator,
@@ -114,6 +115,7 @@ namespace ATB.Utilities.Extensions
             ClassJobType.Paladin,
             ClassJobType.Warrior,
             ClassJobType.DarkKnight,
+            ClassJobType.Gunbreaker,
         };
 
         private static readonly List<ClassJobType> Healers = new List<ClassJobType>()

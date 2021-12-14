@@ -249,10 +249,12 @@ namespace ATB.Utilities
         public static bool IsTank(Character c)
         {
 
+            
             try
             {
                 BattleCharacter bc = (BattleCharacter)c;
-
+                //Logger.ATBLog("Character class:" + c.CurrentJob.ToString()+ "Character class is tank" + bc.IsTank());
+                
                 return bc.IsTank();
             }
             catch (Exception ex)
@@ -261,20 +263,6 @@ namespace ATB.Utilities
                 return false;
             }
 
-            /*
-            switch (c.CurrentJob)
-            {
-                case ClassJobType.Marauder:
-                case ClassJobType.Warrior:
-                case ClassJobType.Paladin:
-                case ClassJobType.Gladiator:
-                case ClassJobType.DarkKnight:
-                case ClassJobType.Gunbreaker:
-                    return true;
-
-                default:
-                    return false;
-            }*/
         }
 
         public static Character PartyTank
